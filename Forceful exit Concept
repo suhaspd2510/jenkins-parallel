@@ -1,0 +1,20 @@
+pipeline {
+				agent any
+				stages {
+					stage('STAGE1') {
+						steps {
+							sh 'sleep 5'
+							sh 'exit 1'
+							
+						}	
+					}
+				stage('STAGE2') {
+					agent any
+						steps {
+							echo "STAGE2 is running"
+							sh 'sleep 5'
+						}	
+					}	
+					
+				}
+			}

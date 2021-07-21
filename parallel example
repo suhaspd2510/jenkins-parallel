@@ -1,0 +1,64 @@
+pipeline {
+				agent any
+				stages {
+					stage('BUILD') {
+						steps {
+							sh '''
+								pwd
+								sleep 5
+								echo This is the fist stage: BUILD
+							'''
+						}	
+					}
+					
+					stage('TEST') {
+						parallel {
+							stage('TEST1') {
+								steps {
+									sh '''
+										pwd
+										sleep 5
+										echo This is the fist stage: TEST1
+									'''
+									}	
+								}
+							stage('TEST2') {
+								steps {
+									sh '''
+										pwd
+										sleep 5
+										echo This is the second stage: TEST2
+									'''
+									}	
+								}
+							stage('TEST3') {
+								steps {
+									sh '''
+										pwd
+										sleep 5
+										echo This is the third stage: TEST3
+									'''
+									}	
+								}
+							stage('TEST4') {
+								steps {
+									sh '''
+										pwd
+										sleep 5
+										echo This is the fourth stage: TEST4
+									'''
+									}	
+								}
+							}	
+						}
+					stage('DEPLOY') {
+						steps {
+							sh '''
+								pwd
+								sleep 5
+								echo This is the fist stage: DEPLOY
+							'''
+						}	
+					}
+				}
+			}
