@@ -15,7 +15,7 @@ pipeline {
 					stage('TEST') {
 						parallel {
 							stage('TEST1') {
-							agent { label 'agent1' }
+							agent { label 'slave-02' }
 								steps {
 									sh '''
 										pwd
@@ -25,7 +25,7 @@ pipeline {
 									}	
 								}
 							stage('TEST2') {
-							agent { label 'agent1' }
+							agent { label 'slave-02' }
 								steps {
 									sh '''
 										pwd
